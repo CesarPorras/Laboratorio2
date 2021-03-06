@@ -5,6 +5,8 @@
  */
 package laboratorio.pkg2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Usuario
@@ -14,6 +16,9 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     /**
      * Creates new form Intefaz_Grafica
      */
+    
+    ArrayList<Operaciones> ListaOperaciones = new ArrayList<Operaciones>();
+    
     public Intefaz_Grafica() {
         initComponents();
     }
@@ -27,6 +32,10 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         IngresarTamaño = new javax.swing.JTextField();
         Varianza = new javax.swing.JButton();
@@ -59,13 +68,40 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         GuardarPersona = new javax.swing.JButton();
         jTextField13 = new javax.swing.JTextField();
-        MostrarPersonas = new javax.swing.JTextField();
         MostrarMedia = new javax.swing.JTextField();
         MostrarVarianza = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         TiempoSeleccion = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,8 +197,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
         jTextField13.setText(" ");
 
-        MostrarPersonas.setText(" ");
-
         MostrarMedia.setText(" ");
 
         MostrarVarianza.setText(" ");
@@ -174,6 +208,19 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel11.setText("Personas Ordenadas de menor a mayor: ");
 
         TiempoSeleccion.setText("Seleccion");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Edad", "Cedula"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,9 +243,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                                 .addComponent(Merge2)
                                 .addGap(73, 73, 73)
                                 .addComponent(Burbuja2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(MostrarPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(TextoReemplazar, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -245,7 +289,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                                         .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(GuardarPersona)))
-                        .addGap(0, 19, Short.MAX_VALUE)))
+                        .addGap(0, 27, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -287,7 +331,10 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
-                        .addComponent(ReemplazarCaracteres)))
+                        .addComponent(ReemplazarCaracteres))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -359,9 +406,9 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(7, 7, 7)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MostrarPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -369,12 +416,17 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void IngresarTamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarTamañoActionPerformed
 //        // TODO add your handling code here:
-        MetodosOrdenamiento NuevoOrdenamiento = new MetodosOrdenamiento();
+
+        
+        
+
+        
         
     }//GEN-LAST:event_IngresarTamañoActionPerformed
 
     private void VarianzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VarianzaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_VarianzaActionPerformed
 
     private void ReemplazarCaracteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReemplazarCaracteresActionPerformed
@@ -384,10 +436,14 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     private void OrdenarArergloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdenarArergloActionPerformed
         // TODO add your handling code here:
         
+        
+        
     }//GEN-LAST:event_OrdenarArergloActionPerformed
 
     private void IngresarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarNombreActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_IngresarNombreActionPerformed
 
     private void ArregloOrdenadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloOrdenadoActionPerformed
@@ -446,7 +502,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     private javax.swing.JButton Merge2;
     private javax.swing.JTextField MostrarDesviacion;
     private javax.swing.JTextField MostrarMedia;
-    private javax.swing.JTextField MostrarPersonas;
     private javax.swing.JTextField MostrarVarianza;
     private javax.swing.JButton OrdenarArerglo;
     private javax.swing.JButton ReemplazarCaracteres;
@@ -468,6 +523,12 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables

@@ -7,12 +7,12 @@ package laboratorio.pkg2;
 
 import java.util.Scanner;
 
-
 public class Personas {
     public void RellenarPersonas() {
+        
         MetodosOrdenamiento NuevoOrdenamiento = new MetodosOrdenamiento();
         Scanner sc = new Scanner(System.in);
-        int num;
+        int num = 0;
         System.out.println("Ingrese La cantidad de personas:");
         num = sc.nextInt();
 

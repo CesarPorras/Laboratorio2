@@ -8,7 +8,18 @@ public class Laboratorio2 {
 
         Scanner teclado = new Scanner(System.in);
         int tamaño = 0;
-        int[] array = new int[tamaño];
+       
+        int array[] = new int[tamaño];
+        for (int x = 0; x < array.length; x++) {
+            array[x] = (int) (Math.random() * 20) + 1;
+            System.out.println(array[x]);
+        }
+        
+        double arreglo[] = new double[tamaño];
+        for (int x = 0; x < arreglo.length; x++) {
+            arreglo[x] = (double) (Math.random() * 20) + 1;
+            System.out.println(arreglo[x]);
+        }
 
         Operaciones NuevaOperacion = new Operaciones();
         MetodosOrdenamiento NuevoOrdenamiento = new MetodosOrdenamiento();
@@ -32,31 +43,47 @@ public class Laboratorio2 {
 
             switch (opcion) {
                 case 1:
-                    NuevoOrdenamiento.sort(array, 0, array.length - 1);
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
+                    NuevoOrdenamiento.BubbleSortOperaciones(array);
                     break;
                 case 2:
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
                     NuevaOperacion.media(array);
                     break;
                 case 3:
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
                     NuevaOperacion.Varianza(array);
                     break;
                 case 4:
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
                     NuevaOperacion.Desviacion(array);
                     break;
                 case 5:
                     Reemplazar.ReemplazarCaracter();
                     break;
                 case 6:
-                    NuevoOrdenamiento.sort(array, 0, array.length - 1);
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
+                    NuevoOrdenamiento.sort(arreglo, 0, arreglo.length - 1);
                     break;
                 case 7:
-                    NuevoOrdenamiento.BubbleSort(array);
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
+                    NuevoOrdenamiento.BubbleSort(arreglo);
                     break;
                 case 8:
-                    NuevoOrdenamiento.InsertionSort(array);
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
+                    NuevoOrdenamiento.InsertionSort(arreglo);
                     break;
                 case 9:
-                    NuevoOrdenamiento.SelectionSort(array);
+                    System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
+                    tamaño = teclado.nextInt();
+                    NuevoOrdenamiento.SelectionSort(arreglo);
                     break;
                 default:
                     System.out.println("La opción seleccionada no es correcta");

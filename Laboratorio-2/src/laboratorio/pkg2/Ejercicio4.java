@@ -10,7 +10,7 @@ package laboratorio.pkg2;
  * @author cfpor
  */
 public class Ejercicio4 {
-    private String nombre;
+     private String nombre;
     private double cedula;
     private int edad;
     
@@ -26,7 +26,6 @@ public class Ejercicio4 {
     }
     public String getnombre() {
         return nombre;
-
     }
 
     public void setnombre(String nombre) {
@@ -48,3 +47,4 @@ public class Ejercicio4 {
         this.edad = edad;
     }
 }
+

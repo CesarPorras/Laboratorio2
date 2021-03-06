@@ -4,20 +4,36 @@ import java.util.Scanner;
 
 public class Operaciones {
 
-    double media = 0.0;
-    double desviacion = 0.0;
-    double varianza = 0.0;
+    double media;
+    double desviacion;
+    double varianza;
 
-    public void CrearArreglo(int tamaño) {
-        Scanner teclado = new Scanner(System.in);
-        System.out.print("Porfavor Ingrese el tamaño del arreglo: ");
-        tamaño = teclado.nextInt();
-        int array[] = new int[tamaño];
-        for (int x = 0; x < array.length; x++) {
-            array[x] = (int) (Math.random() * 20) + 1;
-            System.out.println(array[x]);
-        }
+    public Operaciones(){}      
+
+    public double getMedia() {
+        return media;
     }
+
+    public void setMedia(double media) {
+        this.media = media;
+    }
+
+    public double getDesviacion() {
+        return desviacion;
+    }
+
+    public void setDesviacion(double desviacion) {
+        this.desviacion = desviacion;
+    }
+
+    public double getVarianza() {
+        return varianza;
+    }
+
+    public void setVarianza(double varianza) {
+        this.varianza = varianza;
+    }
+  
 
     public void media(int[] array) {
         double suma = 0.0;
@@ -58,25 +74,5 @@ public class Operaciones {
         System.out.println();
     }
     
-    public void BubbleSort(int[] array) {
-        long startTime;
-        long endTime;
-        long tiempo;
-        startTime = System.currentTimeMillis();
-        for (int cont1 = 0; cont1 < array.length; cont1++) {
-            for (int cont2 = 0; cont2 < array.length; cont2++) {
-                if ((cont2 + 1) < array.length) {
-                    if (array[cont2] > array[cont2 + 1]) {
-                        int t = array[cont2];
-                        array[cont2] = array[cont2 + 1];
-                        array[cont2 + 1] = t;
-                    }
-                }
-            }
-            ArregloaOrdenar(array);
-        }
-        endTime = System.currentTimeMillis();
-        tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de BubbleSort fue de: " + tiempo + " milisegundo(s)");
-    }
+   
 }
