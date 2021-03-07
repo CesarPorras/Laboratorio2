@@ -7,7 +7,7 @@ public class MetodosOrdenamiento {
     public MetodosOrdenamiento(){} 
        
     
-     public void ArregloOrdenarDouble (double[] arreglo) {
+       public void ArregloOrdenarDouble (double[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
             System.out.print(arreglo[i] + ", ");
         }
@@ -19,7 +19,6 @@ public class MetodosOrdenamiento {
         }
         System.out.println();
     }
-   
 
     public void Merge(double arreglo[], int l, int m, int r) {
         long startTime;

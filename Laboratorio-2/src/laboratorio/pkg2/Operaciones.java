@@ -8,7 +8,7 @@ public class Operaciones {
     double desviacion;
     double varianza;
 
-    public Operaciones(){}      
+    /*public Operaciones(){}      
 
     public double getMedia() {
         return media;
@@ -32,9 +32,9 @@ public class Operaciones {
 
     public void setVarianza(double varianza) {
         this.varianza = varianza;
-    }
+    }*/
   
-
+    CreacionArreglos ArregloInt = new CreacionArreglos();
     public void media(int[] array) {
         double suma = 0.0;
 
