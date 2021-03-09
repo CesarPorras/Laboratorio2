@@ -6,6 +6,7 @@
 package laboratorio.pkg2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -16,12 +17,18 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     /**
      * Creates new form Intefaz_Grafica
      */
-    ArrayList<CreacionArreglos> Nuevo = new ArrayList<CreacionArreglos>();
-    ArrayList<Operaciones> ListaOperaciones = new ArrayList<Operaciones>();
-   ArrayList<Ejercicio4> ListaPersonas = new ArrayList<Ejercicio4>();
+    
+    int ArrayInterfaz[];
+    double ArregloDoubleInterfaz[];
+    MetodosOrdenamiento NuevoOrdenamiento = new MetodosOrdenamiento();
+    CreacionArreglos NuevoArreglo = new CreacionArreglos();
+    StringBuffer cadena = new StringBuffer();
+    Operaciones NuevaOpercion = new Operaciones();
+    ArrayList<Ejercicio4> ListaPersonas = new ArrayList<Ejercicio4>();
+
     public Intefaz_Grafica() {
         initComponents();
-        
+
     }
 
     /**
@@ -67,7 +74,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         Burbuja2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         GuardarPersona = new javax.swing.JButton();
-        jTextField13 = new javax.swing.JTextField();
+        MostrarSeleccion = new javax.swing.JTextField();
         MostrarMedia = new javax.swing.JTextField();
         MostrarVarianza = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -130,14 +137,23 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         });
 
         Media.setText("Media");
+        Media.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MediaActionPerformed(evt);
+            }
+        });
 
         Desviacion.setText("Desviacion");
+        Desviacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DesviacionActionPerformed(evt);
+            }
+        });
 
         MostrarDesviacion.setText("               ");
 
         jLabel2.setText("Ingrese un Texto:");
 
-        TextoInicial.setText("                                              ");
         TextoInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextoInicialActionPerformed(evt);
@@ -153,7 +169,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese el tamaño de arreglo doble :");
 
-        TamañoArreglo2.setText("              ");
         TamañoArreglo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TamañoArreglo2ActionPerformed(evt);
@@ -163,6 +178,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         Burbuja.setText("Burbuja");
 
         Merge.setText("Merge");
+        Merge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MergeActionPerformed(evt);
+            }
+        });
 
         TiempoInterseccion.setText("Interseccion");
 
@@ -216,11 +236,16 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
             }
         });
 
-        jTextField13.setText(" ");
+        MostrarSeleccion.setText(" ");
 
         MostrarMedia.setText(" ");
 
         MostrarVarianza.setText(" ");
+        MostrarVarianza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarVarianzaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Arreglo entero organizado: ");
 
@@ -229,6 +254,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel11.setText("Personas Ordenadas de menor a mayor: ");
 
         TiempoSeleccion.setText("Seleccion");
+        TiempoSeleccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TiempoSeleccionActionPerformed(evt);
+            }
+        });
 
         TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -284,31 +314,8 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Varianza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Media, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(19, 19, 19)))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Desviacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(279, 279, 279)
                         .addComponent(jLabel12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ArregloInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,19 +364,40 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TiempoSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(MostrarSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jLabel11))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ArregloInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(218, 218, 218)
+                                .addComponent(jLabel2))
                             .addComponent(TextoReemplazado, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(TextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Varianza, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(108, 108, 108)
+                                        .addComponent(Desviacion))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Arreglo2Ordenado, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -415,7 +443,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(232, 232, 232)
                         .addComponent(jLabel10)))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,28 +462,36 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Varianza)
-                    .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Desviacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Varianza)
+                                    .addComponent(Desviacion))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(TextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ReemplazarCaracteres)
                 .addGap(8, 8, 8)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextoReemplazado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(TamañoArreglo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -476,7 +512,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addComponent(TiempoBurbuja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MostrarSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -515,13 +551,13 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void VarianzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VarianzaActionPerformed
         // TODO add your handling code here:
-        
+        NuevaOpercion.Varianza(ArrayInterfaz);
+        MostrarVarianza.setText(String.valueOf(NuevaOpercion.varianza));
+
     }//GEN-LAST:event_VarianzaActionPerformed
 
     private void ReemplazarCaracteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReemplazarCaracteresActionPerformed
-        // TODO add your handling code here:
-        
-        TextoReemplazado.setText(" ");
+        // TODO add your handling code here:  
         ReemplazarCaracteres NuevoReemplazar = new ReemplazarCaracteres();
         String cadena = TextoInicial.getText();
         NuevoReemplazar.ReemplazarCaracter(cadena);
@@ -530,13 +566,13 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void IngresarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarNombreActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_IngresarNombreActionPerformed
 
     private void ArregloOrdenadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloOrdenadoActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_ArregloOrdenadoActionPerformed
 
     private void Arreglo2OrdenadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arreglo2OrdenadoActionPerformed
@@ -545,40 +581,47 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void CrearArregloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearArregloActionPerformed
         // TODO add your handling code here:
-        
-        CreacionArreglos NuevoArreglo = new CreacionArreglos();
-        int tamaño = Integer.parseInt(IngresarTamaño.getText());
-        NuevoArreglo.CrearArregloInt(tamaño);
-        int ArrayInterfaz[] = new int[tamaño];
+                
+        int tamaño = Integer.parseInt(IngresarTamaño.getText());        
+        int NuevoArregloInicial[] = new int[tamaño];
         String ArrayInicial = " ";
-         for (int i = 0; i < ArrayInterfaz.length; i++)
-         {
-         ArrayInterfaz[i] = NuevoArreglo.array[i];    
-         }
-         ArrayInicial = ArrayInterfaz.toString();
-         ArregloInicial.setText(ArrayInicial);
-         
+        
+        for (int x = 0; x < NuevoArregloInicial.length; x++) {
+            NuevoArregloInicial[x] = (int) (Math.random() * 20) + 1;            
+        }
+        ArrayInicial = Arrays.toString(NuevoArregloInicial);
+        ArregloInicial.setText(ArrayInicial);
+        ArrayInterfaz = NuevoArregloInicial;
+        
+        NuevoOrdenamiento.BubbleSortOperaciones(NuevoArregloInicial);        
+        ArregloOrdenado.setText(NuevoOrdenamiento.ArregloOrdenado1);
         
         
-        
+       
     }//GEN-LAST:event_CrearArregloActionPerformed
 
     private void ArregloInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloInicialActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_ArregloInicialActionPerformed
 
     private void CrearArreglo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearArreglo2ActionPerformed
         // TODO add your handling code here:
-        ArregloInicial2.setText(" ");
-        CreacionArreglos NuevoArreglo = new CreacionArreglos();
-        int tamaño = Integer.parseInt(TamañoArreglo2.getText());
-        NuevoArreglo.CrearArregloDoble(tamaño);
+        int tamaño2 = Integer.parseInt(TamañoArreglo2.getText());           
+        double ArregloInicialDouble[] = new double[tamaño2];
+        String ArrayInicial2 = " ";
          
-         
-                
+        for (int x = 0; x < ArregloInicialDouble.length; x++) {
+         ArregloInicialDouble[x] = (double) (Math.random() * 20) + 1;         
+         }        
+       
+         ArrayInicial2 = Arrays.toString(ArregloInicialDouble);
+         ArregloInicial2.setText(ArrayInicial2);
+         ArregloInicialDouble = ArregloDoubleInterfaz;
         
+        
+
     }//GEN-LAST:event_CrearArreglo2ActionPerformed
 
     private void ArregloInicial2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloInicial2ActionPerformed
@@ -591,34 +634,66 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void GuardarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPersonaActionPerformed
         // TODO add your handling code here:
-        Ejercicio4 persona=new Ejercicio4(IngresarNombre.getText(),IngresarCedula.getText(),IngresarEdad.getText());
-       ListaPersonas.add(persona);
-       
-       mostrar();
-       
-      IngresarNombre.setText("");
-      IngresarCedula.setText("");
-      IngresarEdad.setText("");
-    }                                              
-public void mostrar(){
-    String matris [][] =new String[ListaPersonas.size()][3];
-    for(int i=0;i<ListaPersonas.size();i++){
-        matris[i][0]=ListaPersonas.get(i).getnombre();
-         matris[i][1]=ListaPersonas.get(i).getcedula();
-          matris[i][2]=ListaPersonas.get(i).getedad();
+        Ejercicio4 persona = new Ejercicio4(IngresarNombre.getText(), IngresarCedula.getText(), IngresarEdad.getText());
+        ListaPersonas.add(persona);
+
+        mostrar();
+
+        IngresarNombre.setText("");
+        IngresarCedula.setText("");
+        IngresarEdad.setText("");
     }
-    TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
-            matris,
-            new String [] {
-                "Nombre", "Cedula", "Edad"
-            }
+
+    public void mostrar() {
+        String matris[][] = new String[ListaPersonas.size()][3];
+        for (int i = 0; i < ListaPersonas.size(); i++) {
+            matris[i][0] = ListaPersonas.get(i).getnombre();
+            matris[i][1] = ListaPersonas.get(i).getcedula();
+            matris[i][2] = ListaPersonas.get(i).getedad();
+        }
+        TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
+                matris,
+                new String[]{
+                    "Nombre", "Cedula", "Edad"
+                }
         ));
     }//GEN-LAST:event_GuardarPersonaActionPerformed
 
     private void TextoInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoInicialActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_TextoInicialActionPerformed
+
+    private void MostrarVarianzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarVarianzaActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_MostrarVarianzaActionPerformed
+
+    private void MediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaActionPerformed
+        // TODO add your handling code here:
+        NuevaOpercion.media(ArrayInterfaz);
+        MostrarMedia.setText(String.valueOf(NuevaOpercion.media));
+
+    }//GEN-LAST:event_MediaActionPerformed
+
+    private void DesviacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesviacionActionPerformed
+        // TODO add your handling code here:
+        NuevaOpercion.Desviacion(ArrayInterfaz);
+        MostrarDesviacion.setText(String.valueOf(NuevaOpercion.desviacion));
+
+    }//GEN-LAST:event_DesviacionActionPerformed
+
+    private void MergeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MergeActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_MergeActionPerformed
+
+    private void TiempoSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoSeleccionActionPerformed
+        // TODO add your handling code here:
+        NuevoOrdenamiento.SelectionSort(ArregloDoubleInterfaz);
+        MostrarSeleccion.setText(NuevoOrdenamiento.ArregloOrdenadoSelectionSort);
+        
+    }//GEN-LAST:event_TiempoSeleccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -675,6 +750,7 @@ public void mostrar(){
     private javax.swing.JButton Merge2;
     private javax.swing.JTextField MostrarDesviacion;
     private javax.swing.JTextField MostrarMedia;
+    private javax.swing.JTextField MostrarSeleccion;
     private javax.swing.JTextField MostrarVarianza;
     private javax.swing.JButton ReemplazarCaracteres;
     private javax.swing.JTable TablaPersonas;
@@ -706,7 +782,6 @@ public void mostrar(){
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

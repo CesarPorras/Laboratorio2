@@ -1,11 +1,17 @@
 package laboratorio.pkg2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MetodosOrdenamiento {
-
-    public MetodosOrdenamiento() {
-    }
+    
+    String ArregloOrdenado1;
+    String TiempoInsertionSort;
+    String TiempoBubbleSort;
+    String TiempoSelectionSort;
+    String ArregloOrdenadoInsertionSort;
+    String ArregloOrdenadoBubbleSort;
+    String ArregloOrdenadoSelectionSort;
 
     public void ArregloOrdenarDouble(double[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
@@ -68,7 +74,7 @@ public class MetodosOrdenamiento {
         ArregloOrdenarDouble(arreglo);
         endTime = System.currentTimeMillis();
         tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de MergeSort fue de: " + tiempo + " milisegundo(s)");
+        
     }
 
     void sort(double arreglo[], int extremoIzquierdo, int extremoDerecho) {
@@ -85,7 +91,7 @@ public class MetodosOrdenamiento {
 
     }
 
-    public void BubbleSort(double[] arreglo) {
+    public String BubbleSort(double[] arreglo) {
         long startTime;
         long endTime;
         long tiempo;
@@ -104,10 +110,11 @@ public class MetodosOrdenamiento {
         }
         endTime = System.currentTimeMillis();
         tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de BubbleSort fue de: " + tiempo + " milisegundo(s)");
+        TiempoBubbleSort = String.valueOf(tiempo);       
+        return TiempoBubbleSort;
     }
 
-    public void InsertionSort(double[] arreglo) {
+    public String InsertionSort(double[] arreglo) {
         long startTime;
         long endTime;
         long tiempo;
@@ -128,29 +135,34 @@ public class MetodosOrdenamiento {
         }
         endTime = System.currentTimeMillis();
         tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de InsertionSort fue de: " + tiempo + " milisegundo(s)");
+        TiempoInsertionSort = String.valueOf(tiempo);
+       return TiempoInsertionSort;
     }
 
-    public void SelectionSort(double[] arreglo) {
+    public String SelectionSort(double[] ArregloDoubleInterfaz) {
         long startTime;
         long endTime;
         long tiempo;
+        
         startTime = System.currentTimeMillis();
-        for (int lugarArreglo = 0; lugarArreglo < arreglo.length; lugarArreglo++) {
+        for (int lugarArreglo = 0; lugarArreglo < ArregloDoubleInterfaz.length; lugarArreglo++) {
             int lugarMinimo = lugarArreglo;
-            for (int posicion = lugarArreglo; posicion < arreglo.length; posicion++) {
-                if (arreglo[posicion] < arreglo[lugarMinimo]) {
+            for (int posicion = lugarArreglo; posicion < ArregloDoubleInterfaz.length; posicion++) {
+                if (ArregloDoubleInterfaz[posicion] < ArregloDoubleInterfaz[lugarMinimo]) {
                     lugarMinimo = posicion;
                 }
             }
-            double t = arreglo[lugarArreglo];
-            arreglo[lugarArreglo] = arreglo[lugarMinimo];
-            arreglo[lugarMinimo] = t;
-            ArregloOrdenarDouble(arreglo);
+            double t = ArregloDoubleInterfaz[lugarArreglo];
+            ArregloDoubleInterfaz[lugarArreglo] = ArregloDoubleInterfaz[lugarMinimo];
+            ArregloDoubleInterfaz[lugarMinimo] = t;
+            ArregloOrdenarDouble(ArregloDoubleInterfaz);
         }
         endTime = System.currentTimeMillis();
         tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de SelectionSort fue de: " + tiempo + " milisegundo(s)");
+        TiempoSelectionSort = String.valueOf(tiempo);
+        ArregloOrdenadoSelectionSort = Arrays.toString(ArregloDoubleInterfaz);
+        return ArregloOrdenadoSelectionSort;
+        
     }
 
     /*public void BubbleSortPersonas(Ejercicio4[] arreglo) {
@@ -170,26 +182,24 @@ public class MetodosOrdenamiento {
         }
 
     }*/
-
-    public void BubbleSortOperaciones(int[] array) {
-        long startTime;
-        long endTime;
-        long tiempo;
-        startTime = System.currentTimeMillis();
-        for (int cont1 = 0; cont1 < array.length; cont1++) {
-            for (int cont2 = 0; cont2 < array.length; cont2++) {
-                if ((cont2 + 1) < array.length) {
-                    if (array[cont2] > array[cont2 + 1]) {
-                        int t = array[cont2];
-                        array[cont2] = array[cont2 + 1];
-                        array[cont2 + 1] = t;
+    
+    public String BubbleSortOperaciones(int[] NuevoArregloInicial) {
+        
+       
+        for (int cont1 = 0; cont1 < NuevoArregloInicial.length; cont1++) {
+            for (int cont2 = 0; cont2 < NuevoArregloInicial.length; cont2++) {
+                if ((cont2 + 1) < NuevoArregloInicial.length) {
+                    if (NuevoArregloInicial[cont2] > NuevoArregloInicial[cont2 + 1]) {
+                        int t = NuevoArregloInicial[cont2];
+                        NuevoArregloInicial[cont2] = NuevoArregloInicial[cont2 + 1];
+                        NuevoArregloInicial[cont2 + 1] = t;
                     }
                 }
             }
-            ArregloOrdenarInt(array);
+            
         }
-        endTime = System.currentTimeMillis();
-        tiempo = endTime - startTime;
-        System.out.println("El tiempo que tarde en ejecutar el algoritmo de BubbleSort fue de: " + tiempo + " milisegundo(s)");
+        ArregloOrdenado1 = Arrays.toString(NuevoArregloInicial);
+        
+        return ArregloOrdenado1;
     }
 }

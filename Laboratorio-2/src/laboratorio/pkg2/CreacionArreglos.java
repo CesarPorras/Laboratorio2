@@ -14,25 +14,26 @@ import java.util.Arrays;
  */
 public class CreacionArreglos {
 
-    int tamaño;
-    int array[] = new int[tamaño];
-    double arreglo[] = new double[tamaño];
-
+   /* int array[];
+    double arreglo[];
+    
     public int[] CrearArregloInt(int tamaño) {
         
         for (int x = 0; x < array.length; x++) {
-            array[x] = (int) (Math.random() * 20) + 1;
 
+            
+            array[x] = (int) (Math.random() * 20) + 1;
         }
+
         return array;
     }
 
-    public double[] CrearArregloDoble(int tamaño) {
-
-        
+    public double[] CrearArregloDoble(int tamañodouble) {
+        double arreglo[] = new double[tamañodouble];
         for (int x = 0; x < arreglo.length; x++) {
+            
             arreglo[x] = (double) (Math.random() * 20) + 1;
         }
         return arreglo;
-    }
+    }*/
 }

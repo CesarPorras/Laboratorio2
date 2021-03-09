@@ -11,31 +11,30 @@ public class Operaciones {
     
   
     CreacionArreglos ArregloInt = new CreacionArreglos();
-    public double media(int[] array) {
+    public double media(int[] ArrayInterfaz) {
         double suma = 0.0;
 
-        for (int x = 0; x < array.length; x++) {
-            suma = suma + array[x];
+        for (int x = 0; x < ArrayInterfaz.length; x++) {
+            suma = suma + ArrayInterfaz[x];
         }
-        media = (suma / array.length);       
+        media = (suma / ArrayInterfaz.length);       
         return media;
     }
 
-    public double Varianza(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
+    public double Varianza(int[] ArrayInterfaz) {
+        int n = ArrayInterfaz.length;
+        for (int i = 0; i < ArrayInterfaz.length; i++) {
             double rango;
-            rango = Math.pow(array[i] - media, 2f);
+            rango = Math.pow(ArrayInterfaz[i] - media, 2);
             varianza = varianza + rango;
         }
-        varianza = varianza / array.length;       
+        varianza = varianza / n;       
         return varianza;
     }
 
-    public double Desviacion(int[] array) {
+    public double Desviacion(int[] ArrayInterfaz) {
         {
-            desviacion = Math.sqrt(varianza);
-            System.out.println("La Desviacion Estandar del vector es: " + desviacion);
+            desviacion = Math.sqrt(varianza);            
         }
         return desviacion;
     } 
