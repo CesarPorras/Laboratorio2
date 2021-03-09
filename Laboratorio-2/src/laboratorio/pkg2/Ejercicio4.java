@@ -11,14 +11,14 @@ package laboratorio.pkg2;
  */
 public class Ejercicio4 {
      private String nombre;
-    private double cedula;
-    private int edad;
+    private String cedula;
+    private String edad;
     
     public Ejercicio4 (){
         
     }
 
-    public Ejercicio4(String n, double c, int e) {
+    public Ejercicio4(String n, String c, String e) {
         nombre = n;
         cedula = c;
         edad = e;
@@ -31,19 +31,19 @@ public class Ejercicio4 {
     public void setnombre(String nombre) {
         this.nombre = nombre;
     }
-    public double getcedula() {
+    public String getcedula() {
         return cedula;
     }
 
-    public void setcedula(double cedula) {
+    public void setcedula(String cedula) {
         this.cedula = cedula;
     }
-    public int getedad() {
+    public String getedad() {
         return edad;
 
     }
 
-    public void setedad(int edad) {
+    public void setedad(String edad) {
         this.edad = edad;
     }
 }

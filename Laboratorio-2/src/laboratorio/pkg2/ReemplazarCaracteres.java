@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class ReemplazarCaracteres {
     String cadena;
-
-   public ReemplazarCaracteres(){}
+    String NuevaCadena;
+   /*public ReemplazarCaracteres(){}
    
     public String getCadena() {
         return cadena;
@@ -14,11 +14,11 @@ public class ReemplazarCaracteres {
 
     public void setCadena(String cadena) {
         this.cadena = cadena;
-    }    
+    } */   
     
-    public void ReemplazarCaracter() {
-        Scanner teclado = new Scanner(System.in);        
-        String[] CadenaCaracteres;
+    public String ReemplazarCaracter(String cadena) {
+        Scanner teclado = new Scanner(System.in);       
+        
         char MasRepetida = 0;
         int ContadorMasrepetida = 0;   
         int contador = 0;               
@@ -45,7 +45,8 @@ public class ReemplazarCaracteres {
                 CadenaReemplazada.setCharAt(i, MasRepetida);
             }
         }
-        System.out.println(CadenaReemplazada);
+        NuevaCadena= CadenaReemplazada.toString();
+        return NuevaCadena;
     }
 
 }

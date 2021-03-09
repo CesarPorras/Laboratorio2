@@ -18,7 +18,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
      */
     ArrayList<CreacionArreglos> Nuevo = new ArrayList<CreacionArreglos>();
     ArrayList<Operaciones> ListaOperaciones = new ArrayList<Operaciones>();
-   
+   ArrayList<Ejercicio4> ListaPersonas = new ArrayList<Ejercicio4>();
     public Intefaz_Grafica() {
         initComponents();
         
@@ -44,7 +44,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         Desviacion = new javax.swing.JButton();
         MostrarDesviacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        TextoReemplazar = new javax.swing.JTextField();
+        TextoInicial = new javax.swing.JTextField();
         ReemplazarCaracteres = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         TamañoArreglo2 = new javax.swing.JTextField();
@@ -56,7 +56,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         TiempoBurbuja = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        OrdenarArerglo = new javax.swing.JButton();
         ArregloOrdenado = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         IngresarNombre = new javax.swing.JTextField();
@@ -76,10 +75,16 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TiempoSeleccion = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        TablaPersonas = new javax.swing.JTable();
         ArregloInicial = new java.awt.TextField();
         jLabel12 = new javax.swing.JLabel();
         CrearArreglo = new javax.swing.JButton();
+        CrearArreglo2 = new javax.swing.JButton();
+        ArregloInicial2 = new java.awt.TextField();
+        jLabel13 = new javax.swing.JLabel();
+        TextoReemplazado = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 3), new java.awt.Dimension(0, 3), new java.awt.Dimension(32767, 3));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,7 +116,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
         jLabel1.setText("Ingresar tamaño del arreglo: ");
 
-        IngresarTamaño.setText("                 ");
         IngresarTamaño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IngresarTamañoActionPerformed(evt);
@@ -133,7 +137,12 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese un Texto:");
 
-        TextoReemplazar.setText("                                              ");
+        TextoInicial.setText("                                              ");
+        TextoInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextoInicialActionPerformed(evt);
+            }
+        });
 
         ReemplazarCaracteres.setText("Remplace caracteres");
         ReemplazarCaracteres.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +154,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel3.setText("Ingrese el tamaño de arreglo doble :");
 
         TamañoArreglo2.setText("              ");
+        TamañoArreglo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TamañoArreglo2ActionPerformed(evt);
+            }
+        });
 
         Burbuja.setText("Burbuja");
 
@@ -166,13 +180,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jTextField8.setText("             ");
 
         jLabel4.setText("Tiempo =");
-
-        OrdenarArerglo.setText("Ordenar");
-        OrdenarArerglo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OrdenarArergloActionPerformed(evt);
-            }
-        });
 
         ArregloOrdenado.setText(" ");
         ArregloOrdenado.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +210,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
         jLabel8.setText("Elija el tipo de ordenamiento:");
 
         GuardarPersona.setText("Guardar");
+        GuardarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPersonaActionPerformed(evt);
+            }
+        });
 
         jTextField13.setText(" ");
 
@@ -218,7 +230,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
         TiempoSeleccion.setText("Seleccion");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -229,9 +241,8 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                 "Nombre", "Edad", "Cedula"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(TablaPersonas);
 
-        ArregloInicial.setText("textField1");
         ArregloInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ArregloInicialActionPerformed(evt);
@@ -247,6 +258,25 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
             }
         });
 
+        CrearArreglo2.setText("Crear Arreglo Doble");
+        CrearArreglo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearArreglo2ActionPerformed(evt);
+            }
+        });
+
+        ArregloInicial2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ArregloInicial2ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Arreglo double Inicial: ");
+
+        TextoReemplazado.setText("                                              ");
+
+        jLabel14.setText("Cadena de caracteres Reemplazada: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -254,124 +284,138 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(135, 135, 135)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(Varianza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(41, 41, 41)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Media, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(19, 19, 19)))
-                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Varianza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Desviacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Media, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(222, 222, 222)
-                                .addComponent(jLabel10))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(218, 218, 218)
-                                .addComponent(ReemplazarCaracteres))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(279, 279, 279)
-                                .addComponent(jLabel12)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel2)
+                                .addGap(19, 19, 19)))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Desviacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(279, 279, 279)
+                        .addComponent(jLabel12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Arreglo2Ordenado)
+                            .addComponent(ArregloInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ArregloInicial2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jLabel3)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel13))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(TamañoArreglo2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(TamañoArreglo2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(Merge2)
-                                        .addGap(73, 73, 73)
-                                        .addComponent(Burbuja2))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TextoReemplazar, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel4)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(TiempoMerge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(55, 55, 55)
-                                                    .addComponent(Merge, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(27, 27, 27)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                            .addGap(10, 10, 10)
-                                                            .addComponent(TiempoBurbuja, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(Burbuja, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGap(35, 35, 35)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(TiempoInterseccion)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(46, 46, 46)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(TiempoSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(156, 156, 156)
-                                        .addComponent(jLabel11))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(IngresarEdad))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(IngresarCedula))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(GuardarPersona)))
-                                .addGap(0, 27, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(CrearArreglo2))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(ReemplazarCaracteres))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jLabel14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(TiempoMerge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(Merge, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(210, 210, 210))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(ArregloInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(IngresarTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(CrearArreglo)))
-                                        .addGap(82, 82, 82)))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(TiempoBurbuja, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Burbuja, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TiempoInterseccion)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TiempoSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel11))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TextoReemplazado, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Arreglo2Ordenado, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(OrdenarArerglo)
-                .addGap(255, 255, 255))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(220, 220, 220))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(IngresarTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(CrearArreglo)
+                        .addGap(92, 92, 92))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(54, 54, 54)
+                                .addComponent(Merge2)
+                                .addGap(73, 73, 73)
+                                .addComponent(Burbuja2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(IngresarEdad))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(IngresarCedula))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(GuardarPersona))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(jLabel10)))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,9 +429,7 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(ArregloInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OrdenarArerglo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ArregloOrdenado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -397,21 +439,32 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Desviacion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(MostrarVarianza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MostrarMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MostrarDesviacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextoReemplazar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ReemplazarCaracteres)
-                .addGap(24, 24, 24)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextoReemplazado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TamañoArreglo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(TamañoArreglo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrearArreglo2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(ArregloInicial2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Burbuja)
                     .addComponent(Merge)
@@ -424,11 +477,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel10)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Arreglo2Ordenado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
                     .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -446,11 +499,11 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
                     .addComponent(Merge2)
                     .addComponent(Burbuja2)
                     .addComponent(jLabel8))
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -467,14 +520,13 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void ReemplazarCaracteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReemplazarCaracteresActionPerformed
         // TODO add your handling code here:
+        
+        TextoReemplazado.setText(" ");
+        ReemplazarCaracteres NuevoReemplazar = new ReemplazarCaracteres();
+        String cadena = TextoInicial.getText();
+        NuevoReemplazar.ReemplazarCaracter(cadena);
+        TextoReemplazado.setText(NuevoReemplazar.NuevaCadena);
     }//GEN-LAST:event_ReemplazarCaracteresActionPerformed
-
-    private void OrdenarArergloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdenarArergloActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_OrdenarArergloActionPerformed
 
     private void IngresarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarNombreActionPerformed
         // TODO add your handling code here:
@@ -493,18 +545,80 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
 
     private void CrearArregloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearArregloActionPerformed
         // TODO add your handling code here:
-        ArregloInicial.setText(" ");
+        
         CreacionArreglos NuevoArreglo = new CreacionArreglos();
         int tamaño = Integer.parseInt(IngresarTamaño.getText());
         NuevoArreglo.CrearArregloInt(tamaño);
+        int ArrayInterfaz[] = new int[tamaño];
+        String ArrayInicial = " ";
+         for (int i = 0; i < ArrayInterfaz.length; i++)
+         {
+         ArrayInterfaz[i] = NuevoArreglo.array[i];    
+         }
+         ArrayInicial = ArrayInterfaz.toString();
+         ArregloInicial.setText(ArrayInicial);
+         
+        
         
         
     }//GEN-LAST:event_CrearArregloActionPerformed
 
     private void ArregloInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloInicialActionPerformed
         // TODO add your handling code here:
-
+        
+        
     }//GEN-LAST:event_ArregloInicialActionPerformed
+
+    private void CrearArreglo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearArreglo2ActionPerformed
+        // TODO add your handling code here:
+        ArregloInicial2.setText(" ");
+        CreacionArreglos NuevoArreglo = new CreacionArreglos();
+        int tamaño = Integer.parseInt(TamañoArreglo2.getText());
+        NuevoArreglo.CrearArregloDoble(tamaño);
+         
+         
+                
+        
+    }//GEN-LAST:event_CrearArreglo2ActionPerformed
+
+    private void ArregloInicial2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArregloInicial2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ArregloInicial2ActionPerformed
+
+    private void TamañoArreglo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TamañoArreglo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TamañoArreglo2ActionPerformed
+
+    private void GuardarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPersonaActionPerformed
+        // TODO add your handling code here:
+        Ejercicio4 persona=new Ejercicio4(IngresarNombre.getText(),IngresarCedula.getText(),IngresarEdad.getText());
+       ListaPersonas.add(persona);
+       
+       mostrar();
+       
+      IngresarNombre.setText("");
+      IngresarCedula.setText("");
+      IngresarEdad.setText("");
+    }                                              
+public void mostrar(){
+    String matris [][] =new String[ListaPersonas.size()][3];
+    for(int i=0;i<ListaPersonas.size();i++){
+        matris[i][0]=ListaPersonas.get(i).getnombre();
+         matris[i][1]=ListaPersonas.get(i).getcedula();
+          matris[i][2]=ListaPersonas.get(i).getedad();
+    }
+    TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Nombre", "Cedula", "Edad"
+            }
+        ));
+    }//GEN-LAST:event_GuardarPersonaActionPerformed
+
+    private void TextoInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoInicialActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TextoInicialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,10 +658,12 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Arreglo2Ordenado;
     private java.awt.TextField ArregloInicial;
+    private java.awt.TextField ArregloInicial2;
     private javax.swing.JTextField ArregloOrdenado;
     private javax.swing.JButton Burbuja;
     private javax.swing.JButton Burbuja2;
     private javax.swing.JButton CrearArreglo;
+    private javax.swing.JButton CrearArreglo2;
     private javax.swing.JButton Desviacion;
     private javax.swing.JButton GuardarPersona;
     private javax.swing.JTextField IngresarCedula;
@@ -560,19 +676,23 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     private javax.swing.JTextField MostrarDesviacion;
     private javax.swing.JTextField MostrarMedia;
     private javax.swing.JTextField MostrarVarianza;
-    private javax.swing.JButton OrdenarArerglo;
     private javax.swing.JButton ReemplazarCaracteres;
+    private javax.swing.JTable TablaPersonas;
     private javax.swing.JTextField TamañoArreglo2;
-    private javax.swing.JTextField TextoReemplazar;
+    private javax.swing.JTextField TextoInicial;
+    private javax.swing.JTextField TextoReemplazado;
     private javax.swing.JTextField TiempoBurbuja;
     private javax.swing.JButton TiempoInterseccion;
     private javax.swing.JTextField TiempoMerge;
     private javax.swing.JButton TiempoSeleccion;
     private javax.swing.JButton Varianza;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -586,7 +706,6 @@ public class Intefaz_Grafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables

@@ -2,18 +2,19 @@ package laboratorio.pkg2;
 
 import java.util.Scanner;
 
-public class MetodosOrdenamiento {    
-   
-    public MetodosOrdenamiento(){} 
-       
-    
-       public void ArregloOrdenarDouble (double[] arreglo) {
+public class MetodosOrdenamiento {
+
+    public MetodosOrdenamiento() {
+    }
+
+    public void ArregloOrdenarDouble(double[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
             System.out.print(arreglo[i] + ", ");
         }
         System.out.println();
     }
-     public void ArregloOrdenarInt(int[] array) {
+
+    public void ArregloOrdenarInt(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + ", ");
         }
@@ -105,7 +106,6 @@ public class MetodosOrdenamiento {
         tiempo = endTime - startTime;
         System.out.println("El tiempo que tarde en ejecutar el algoritmo de BubbleSort fue de: " + tiempo + " milisegundo(s)");
     }
- 
 
     public void InsertionSort(double[] arreglo) {
         long startTime;
@@ -153,7 +153,7 @@ public class MetodosOrdenamiento {
         System.out.println("El tiempo que tarde en ejecutar el algoritmo de SelectionSort fue de: " + tiempo + " milisegundo(s)");
     }
 
-     public void BubbleSortPersonas(Ejercicio4[] arreglo) {
+    /*public void BubbleSortPersonas(Ejercicio4[] arreglo) {
 
         for (int cont1 = 0; cont1 < arreglo.length; cont1++) {
             for (int cont2 = 0; cont2 < arreglo.length; cont2++) {
@@ -169,9 +169,9 @@ public class MetodosOrdenamiento {
 
         }
 
-    }
-    
-      public void BubbleSortOperaciones(int[] array) {
+    }*/
+
+    public void BubbleSortOperaciones(int[] array) {
         long startTime;
         long endTime;
         long tiempo;

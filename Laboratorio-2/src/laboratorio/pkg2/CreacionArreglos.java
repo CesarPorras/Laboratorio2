@@ -13,33 +13,26 @@ import java.util.Arrays;
  * @author cfpor
  */
 public class CreacionArreglos {
+
     int tamaño;
-    /*public CreacionArreglos(){}
+    int array[] = new int[tamaño];
+    double arreglo[] = new double[tamaño];
 
-    public int getTamaño() {
-        return tamaño;
-    }
-
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
-    }*/
-    
-    public static int CrearArregloInt(int tamaño) {
+    public int[] CrearArregloInt(int tamaño) {
         
-        int array[] = new int[tamaño];
         for (int x = 0; x < array.length; x++) {
-        array[x] = (int) (Math.random() * 20) + 1;
-           
+            array[x] = (int) (Math.random() * 20) + 1;
+
         }
-        return array[tamaño];
+        return array;
     }
-     
-    public void CrearArregloDoble(int tamaño) {
+
+    public double[] CrearArregloDoble(int tamaño) {
+
         
-        double arreglo[] = new double[tamaño];
         for (int x = 0; x < arreglo.length; x++) {
             arreglo[x] = (double) (Math.random() * 20) + 1;
-             System.out.println(Arrays.toString(arreglo));
         }
+        return arreglo;
     }
 }

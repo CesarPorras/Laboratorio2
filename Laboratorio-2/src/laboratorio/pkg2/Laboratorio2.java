@@ -6,7 +6,7 @@ public class Laboratorio2 {
 
     public static void main(String[] args) {
 
-        Scanner teclado = new Scanner(System.in);
+       /* Scanner teclado = new Scanner(System.in);
         int tamaño = 0;
        
         int array[] = new int[tamaño];
@@ -89,5 +89,6 @@ public class Laboratorio2 {
                     System.out.println("La opción seleccionada no es correcta");
             }
         } while (opcion != 8);
+    }*/
     }
 }
